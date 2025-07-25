@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+label:has(input:checked)   {
+    text-decoration: line-through;
+}

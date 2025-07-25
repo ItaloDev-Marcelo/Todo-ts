@@ -1,7 +1,7 @@
-
+import TodoApp from "./ui/TodoApp"
 
 function App() {
-  return <h1>ola</h1>
+  return <TodoApp/>
 }
 
 export default App
