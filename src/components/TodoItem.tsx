@@ -5,14 +5,19 @@ interface Todo {
      completed: boolean,
      title: string,
      handlecompleted: (id:number) => void,
-     removeItem: (id:number) => void
+     removeItem: (id:number) => void,
+     mode: boolean
 }
 
 
 
-const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem}) => {
+const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem, mode}) => {
+
+  const light = 'bg-Very-Light-Grayish flex justify-between px-2 py-3  '
+  const dark = 'bg-Very-Dark-Desaturated-Blue flex justify-between px-2 py-3 '
+
   return (
-    <div key={id}>
+    <div key={id} className={mode ? dark : light}>
         <label>
         <input type='checkbox' checked={completed}  onChange={() => handlecompleted(id)} />
         <span>{title}</span>

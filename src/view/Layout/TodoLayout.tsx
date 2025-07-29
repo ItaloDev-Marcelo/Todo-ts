@@ -24,11 +24,15 @@ function TodoLayout() {
       <div>
       {
         select === 0 ? todo.map((item) => (
-           <div className='bg-red-400'> <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem} /></div>
+           <TodoItem id={item.id} 
+           completed={item.completed} title={item.title}
+            handlecompleted={handlecompleted} 
+            mode={darkMode}
+            removeItem={removeItem} />
         )) :  select === 1 ? complatedArr.map((item) => (
-              <div className='bg-blue-400'> <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem} /></div>
+             <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />
         )) : actives.map((item) => (
-             <div className='bg-yellow-400'> <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem} /></div>
+             <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />
         )) 
       }
       <MobileDashboard num={actives.length} clearComplated={clear} />

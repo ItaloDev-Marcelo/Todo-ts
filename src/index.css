@@ -2,20 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 @plugin "daisyui";
 
-* {
-    font-size: 100%;
-}
 
 body {
     font-size: 1.125em;
-      font-family: "Josefin Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-     font-style: normal;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
-label:has(input:checked)   {
+label:has(input:checked) {
     text-decoration: line-through;
 }
 
@@ -23,28 +20,73 @@ label:has(input:checked)   {
 
 
 @theme {
-/* Primary */
---Bright-Blue: #3A7CFD;
+    /* Primary */
+    --Bright-Blue: #3A7CFD;
 
-/* Check Background Gradient */
+    /* Check Background Gradient */
 
---color-Check-Background-Start: #00C2FF;
---color-Check-Background-End: #AE66FF;
+    --color-Check-Background-Start: #00C2FF;
+    --color-Check-Background-End: #AE66FF;
 
-/* ### Light Theme */
---color-Very-Light-Gray: #FAFAFA;
---color-Very-Light-Grayish-Blue: #E3E4F1;
---color-Light-Grayish-Blue: #D2D3DB;
---color-Dark-Grayish-Blue: #9394A5;
---color-Very-Dark-Grayish-Blue: #4D5066;
+    /* ### Light Theme */
+    --color-Very-Light-Gray: #FAFAFA;
+    --color-Very-Light-Grayish-Blue: #E3E4F1;
+    --color-Light-Grayish-Blue: #D2D3DB;
+    --color-Dark-Grayish-Blue: #9394A5;
+    --color-Very-Dark-Grayish-Blue: #4D5066;
 
-/* ### Dark Theme */
---color-Very-Dark-Blue: #181824;
---color-Very-Dark-Desaturated-Blue: #25273C;
---color-Light-Grayish-Blue: #CACDE8;
---color-Light-Grayish-Blue-hover: #E3E4F1;
---color-Dark-Grayish-Blue: #777A92;
---color-Very-Dark-Grayish-Blue-1: #4C4F66;
---color-Very-Dark-Grayish-Blue-2: #393A4B;
+    /* ### Dark Theme */
+    --color-Very-Dark-Blue: #181824;
+    --color-Very-Dark-Desaturated-Blue: #25273C;
+    --color-Light-Grayish-Blue: #CACDE8;
+    --color-Light-Grayish-Blue-hover: #E3E4F1;
+    --color-Dark-Grayish-Blue: #777A92;
+    --color-Very-Dark-Grayish-Blue-1: #4C4F66;
+    --color-Very-Dark-Grayish-Blue-2: #393A4B;
 
+}
+
+
+.bg-light {
+    background: url(./assets/bg-mobile-light.jpg) no-repeat;
+    background-size: 100% 100%;
+    height: 200px;
+}
+
+.bg-dark {
+    background: url(./assets/bg-mobile-dark.jpg) no-repeat;
+     background-size: 100% 100%;
+    height: 200px;
+}
+
+
+@media (min-width: 600px) {
+    .bg-light {
+        background: url(./assets/bg-mobile-light.jpg) no-repeat;
+        height: 200px;
+    }
+
+    .bg-dark {
+        background: url(./assets/bg-mobile-dark.jpg) no-repeat;
+        
+        height: 200px;
+    }
+
+}
+
+
+@media (min-width: 1024px) {
+    .bg-light {
+        background: url(./assets/bg-desktop-light.jpg) no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 250px;
+    }
+
+    .bg-dark {
+        background: url(./assets/bg-desktop-dark.jpg) no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 250px;
+    }
 }
