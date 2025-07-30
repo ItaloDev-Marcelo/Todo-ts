@@ -1,4 +1,4 @@
-import {useState}  from "react"
+import {useEffect, useState}  from "react"
 import { UseTodo } from "../hooks/useTodo";
 import { MobileDashboard } from "../Mobile.Dashboard";
 import TodoItem from '../../components/TodoItem'
@@ -12,16 +12,24 @@ function TodoLayout() {
   const {handleClick,handlecompleted,removeItem,clear,complatedArr,select,setSelect,actives,todo, task,setTask} = UseTodo()
   const darkOrLight = () => setDarkMode(!darkMode)
 
+  useEffect(() => {
+    const toggle = darkMode ? 'dark' : 'light'
+     document.body.className = toggle
+  }, [darkMode])
+
+  const dark = 'flex flex-row bg-Very-Dark-Desaturated-Blue text-Very-Dark-Grayish-Blue-1 mx-auto w-[330px] md:w-[600px] xl:w-[660px] nt:w-[700px] relative top-[-7em] nt:top-[-8em] px-2 rounded-[4px]';
+  const light = 'flex flex-row bg-Very-Light-Grayish-Blue text-Very-Dark-Grayish-Blue mx-auto w-[330px] md:w-[600px]  xl:w-[660px] nt:w-[700px] relative top-[-7em] nt:top-[-8em]  px-2 rounded-[4px]'
+
   return <MainWrapper>
 
      <Header mode={darkMode} darkOrLight={darkOrLight} />
 
-      <form onSubmit={handleClick} className="flex flex-row ">
-         <button type='submit'>New Todo</button>
-         <input type='text' value={task} onChange={(e) => setTask(e.target.value)} placeholder="create a new todo..." /> 
+      <form onSubmit={handleClick} className={darkMode ? dark : light}>
+         <button type='submit' className="text-[2.5em] mr-4">○</button>
+         <input className="w-full " type='text' value={task} onChange={(e) => setTask(e.target.value)} placeholder="create a new todo..." /> 
       </form>
 
-      <div>
+      <div className="px-4 md:px-[14.5em]  xl:px-[17em] nt:px-[20.5rem] relative top-[-3em] nt:top-[-6em] ">
       {
         select === 0 ? todo.map((item) => (
            <TodoItem id={item.id} 
@@ -29,7 +37,7 @@ function TodoLayout() {
             handlecompleted={handlecompleted} 
             mode={darkMode}
             removeItem={removeItem} />
-        )) :  select === 1 ? complatedArr.map((item) => (
+        )) :  select === 1 ? complatedArr.length > 0 && complatedArr.map((item) => (
              <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />
         )) : actives.map((item) => (
              <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />

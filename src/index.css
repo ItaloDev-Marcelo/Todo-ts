@@ -9,6 +9,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    text-align: center;
 }
 
 
@@ -20,9 +21,10 @@ label:has(input:checked) {
 
 
 @theme {
+    --breakpoint-nt: 85rem;
     /* Primary */
     --Bright-Blue: #3A7CFD;
-
+    
     /* Check Background Gradient */
 
     --color-Check-Background-Start: #00C2FF;
@@ -46,18 +48,77 @@ label:has(input:checked) {
 
 }
 
+input[type='text']:focus-visible {
+   outline: none;
+}
 
 .bg-light {
     background: url(./assets/bg-mobile-light.jpg) no-repeat;
     background-size: 100% 100%;
-    height: 200px;
+    height: 250px;
+}
+
+body.dark {
+    background-color:#181824;
+    width: 100vw;
+    height: 100vh;
+}
+
+body.light {
+   
+     background-color: #D2D3DB;
+    width: 100vw;
+    height: 100vh;
 }
 
 .bg-dark {
     background: url(./assets/bg-mobile-dark.jpg) no-repeat;
      background-size: 100% 100%;
-    height: 200px;
+    height: 250px;
 }
+
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  gap: 10px;
+  user-select: none;
+  font-family: sans-serif;
+}
+
+.custom-checkbox .checkmark {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #aaa8a8;
+  border-radius: 25px;
+  background-color: transparent;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+/* Quando marcado */
+.custom-checkbox input:checked + .checkmark {
+  background: linear-gradient(135deg,  #00C2FF,  #AE66FF); /* gradient */
+  border: none;
+}
+
+/* Ícone de check */
+.custom-checkbox input:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
 
 
 @media (min-width: 600px) {
@@ -80,13 +141,13 @@ label:has(input:checked) {
         background: url(./assets/bg-desktop-light.jpg) no-repeat;
         background-size: cover;
         width: 100%;
-        height: 250px;
+        height: 300px;
     }
 
     .bg-dark {
         background: url(./assets/bg-desktop-dark.jpg) no-repeat;
         background-size: cover;
         width: 100%;
-        height: 250px;
+        height: 300px;
     }
 }

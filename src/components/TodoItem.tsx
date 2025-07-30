@@ -9,21 +9,31 @@ interface Todo {
      mode: boolean
 }
 
+import close from '../assets/icon-cross.svg'
 
 
 const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem, mode}) => {
 
-  const light = 'bg-Very-Light-Grayish flex justify-between px-2 py-3  '
-  const dark = 'bg-Very-Dark-Desaturated-Blue flex justify-between px-2 py-3 '
+  const light = 'bg-Very-Light-Grayish-Blue flex justify-between px-3 py-4  shadow '
+  const dark = 'bg-Very-Dark-Desaturated-Blue flex justify-between px-3 py-4  shadow'
+
+  const borderL = 'border-Dark-Grayish-Blue'
+  const borderD = 'border-Light-Grayish-Blue'
 
   return (
+    <>
     <div key={id} className={mode ? dark : light}>
-        <label>
-        <input type='checkbox' checked={completed}  onChange={() => handlecompleted(id)} />
-        <span>{title}</span>
+        <label className='flex'>
+        <div className=" custom-checkbox">
+          <input type='checkbox' className="hidden" checked={completed}  onChange={() => handlecompleted(id)} />
+          <span className='checkmark'></span>
+        </div>
+        <span className='ml-5 text-[1em]'>{title}</span>
         </label>
-        <button onClick={() => removeItem(id)}>X</button>
+        <button className='p-2' onClick={() => removeItem(id)}><img src={close} alt=''/></button>
     </div> 
+     <hr className={mode ? borderD : borderL}/>
+    </>
   )
 }
 
