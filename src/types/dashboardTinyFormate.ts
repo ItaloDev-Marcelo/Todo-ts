@@ -1,4 +1,5 @@
 export interface DashboardTinyFormate {
     num: number,
-    clearComplated: () => void
+    clearComplated: () => void,
+    darkMode:boolean
 }

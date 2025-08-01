@@ -14,8 +14,8 @@ import close from '../assets/icon-cross.svg'
 
 const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem, mode}) => {
 
-  const light = 'bg-Very-Light-Gray flex justify-between px-3 py-4  shadow  '
-  const dark = 'bg-Very-Dark-Desaturated-Blue flex justify-between px-3 py-4  shadow'
+  const light = 'bg-Very-Light-Gray text-Very-Dark-Grayish-Blue flex justify-between px-3 py-4  shadow  '
+  const dark = 'bg-Very-Dark-Desaturated-Blue text-Light-Grayish-Blue  flex justify-between px-3 py-4  shadow'
 
   const borderL = 'border-Dark-Grayish-Blue'
   const borderD = 'border-Light-Grayish-Blue'
@@ -28,7 +28,7 @@ const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem, m
           <input type='checkbox' className="hidden" checked={completed}  onChange={() => handlecompleted(id)} />
           <span className='checkmark'></span>
         </div>
-        <span className='ml-5 text-[1em]'>{title}</span>
+        <span className='ml-5 text-[1em] title '>{title}</span>
         </label>
         <button className='p-2' onClick={() => removeItem(id)}><img src={close} alt=''/></button>
     </div> 

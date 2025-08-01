@@ -109,6 +109,8 @@ form {
   border: none;
 }
 
+
+
 /* Ícone de check */
 .custom-checkbox input:checked + .checkmark::after {
   content: '';
@@ -128,12 +130,15 @@ form {
 @media (min-width: 600px) {
     .bg-light {
         background: url(./assets/bg-mobile-light.jpg) no-repeat;
+        background-size: cover;
+        width: 100%;
         height: 200px;
     }
 
     .bg-dark {
         background: url(./assets/bg-mobile-dark.jpg) no-repeat;
-        
+        background-size: cover;
+        width: 100%;
         height: 200px;
     }
 

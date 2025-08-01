@@ -13,7 +13,6 @@ export const UseTodo = () =>  {
          e.preventDefault()
            setTodo((prev) => [...prev, { id: Math.floor(Math.random() * 100) ,title: task , completed: false}] )
            setTask('')
-        
         }
       
         const handlecompleted = (id:number) => {
@@ -37,7 +36,7 @@ export const UseTodo = () =>  {
       
         useEffect(() => {
            const result =  todo.filter((item) => item.completed == false).map((item) => item)
-           if(result) setActives(result)
+           if(result.length > 0) setActives(result);
         }, [todo])
       
       

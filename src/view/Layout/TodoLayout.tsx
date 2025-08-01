@@ -24,10 +24,13 @@ function TodoLayout() {
  const MainL = ' relative top-[-5em] nt:top-[-6em] mx-auto  w-[320px] md:w-[600px]  xl:w-[660px] nt:w-[700px] bg-white rounded-[3px] px-[.1em] '
   const MainD = ' relative top-[-5em] nt:top-[-6em] mx-auto  w-[320px] md:w-[600px]  xl:w-[660px] nt:w-[700px] bg-Very-Dark-Desaturated-Blue rounded-[3px] px-[.1em] '
  
- const NavL = 'relative nt:hidden top-[-2em] w-[320px] md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] bg-white  flex flex-row justify-between items-center'
+ const NavL = 'relative nt:hidden top-[-2em] w-[320px] text-Light-Grayish-Blue  md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] bg-white  flex flex-row justify-between items-center'
 
- const NavD = 'relative nt:hidden top-[-2em] w-[320px] md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] bg-Very-Dark-Desaturated-Blue  flex flex-row justify-between items-center'
+ const NavD = 'relative nt:hidden top-[-2em] w-[320px] text-Dark-Grayish-Blue md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] bg-Very-Dark-Desaturated-Blue  flex flex-row justify-between items-center'
 
+
+ const darkT = 'relative top-[-1em] nt:top-[-3em] text-Very-Dark-Grayish-Blue';
+ const lightT = 'relative top-[-1em] nt:top-[-3em] text-Very-Dark-Grayish-Blue-1'
 
  return <MainWrapper>
 
@@ -54,9 +57,9 @@ function TodoLayout() {
         )) 
       }
       </div>
-      {todo.length > 0 && <MobileDashboard num={actives.length} clearComplated={clear} />}
+      {todo.length > 0 && <MobileDashboard num={actives.length} clearComplated={clear} darkMode={darkMode} />}
       {todo.length > 0 && <div>
-         <Dashboard num={actives.length} setSelect={setSelect}  clearComplated={clear} />
+         <Dashboard num={actives.length} setSelect={setSelect}  clearComplated={clear} darkMode={darkMode} />
       </div>}
       </div>
 
@@ -68,7 +71,7 @@ function TodoLayout() {
         </div>
       </div>}
         
-      <h2 className="relative top-[-1em] nt:top-[-3em]">Drang and drop to reorder list </h2>
+      <h2 className={darkMode ? darkT : lightT}>Drang and drop to reorder list </h2>
     </MainWrapper>
 }
 
