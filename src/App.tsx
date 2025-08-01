@@ -1,4 +1,4 @@
-import TodoLayout from "./view/Layout/TodoLayout"
+import TodoLayout from "./Layout/TodoLayout"
 
 function App() {
   return <TodoLayout/> 

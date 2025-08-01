@@ -12,6 +12,7 @@ body {
     text-align: center;
     overflow-x:hidden ;
     min-height: 100vh;
+    transition: background-color 0.4s ease-in-out;
 }
 
 
@@ -60,6 +61,8 @@ input[type='text']:focus-visible {
     height: 250px;
 }
 
+
+
 body.dark {
     background-color:#181824;
     width: 100vw;
@@ -94,14 +97,20 @@ form {
 }
 
 .custom-checkbox .checkmark {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #aaa8a8;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #aaa8a8;
   border-radius: 25px;
   background-color: transparent;
   position: relative;
   transition: background 0.3s ease;
 }
+
+.checkmark:hover  {
+    border-color:#E3E4F1;
+}
+
+
 
 /* Quando marcado */
 .custom-checkbox input:checked + .checkmark {

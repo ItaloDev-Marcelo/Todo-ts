@@ -1,11 +1,9 @@
-
 import Moon from '../assets/icon-moon.svg';
 import Sun from '../assets/icon-sun.svg';
 import { type modeProp } from '../types/modeProps';
 
 const Header = ({mode, darkOrLight}:modeProp) => {
-
-    const DarkModeIcon = mode ? Moon : Sun;
+  const DarkModeIcon = mode ? Moon : Sun;
 
   return (
     <header className={mode ? 'bg-dark' : 'bg-light'}>
