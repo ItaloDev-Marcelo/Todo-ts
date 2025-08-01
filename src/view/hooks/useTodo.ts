@@ -35,7 +35,7 @@ export const UseTodo = () =>  {
         }
       
         useEffect(() => {
-           const result =  todo.filter((item) => item.completed == false).map((item) => item)
+           const result =  todo.filter((item) => item.completed != false)
            if(result.length > 0) setActives(result);
         }, [todo])
       
