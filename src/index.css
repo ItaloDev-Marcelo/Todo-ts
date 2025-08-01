@@ -10,6 +10,8 @@ body {
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    overflow-x:hidden ;
+    min-height: 100vh;
 }
 
 
@@ -61,14 +63,12 @@ input[type='text']:focus-visible {
 body.dark {
     background-color:#181824;
     width: 100vw;
-    height: 100vh;
+
 }
 
 body.light {
-   
      background-color: #D2D3DB;
     width: 100vw;
-    height: 100vh;
 }
 
 .bg-dark {
@@ -87,6 +87,10 @@ body.light {
   gap: 10px;
   user-select: none;
   font-family: sans-serif;
+}
+
+form {
+    overflow: hidden;
 }
 
 .custom-checkbox .checkmark {

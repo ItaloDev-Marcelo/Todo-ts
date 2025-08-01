@@ -3,7 +3,7 @@ import { type DashboardFormate } from "../types/dashboardProps"
 
 const Dashboard:FC<DashboardFormate> = ({num,setSelect, clearComplated}) => {
   return (
-    <div className='dashboard flex flex-col md:flex-row justify-between  px-5  md:px-5 bg-red-300'>
+    <div className='hidden md:flex flex-col md:flex-row justify-between items-center h-[50px] my-1.5 px-5 md:px-5'>
         <p><a href='#Itens-left' className='hidden lg:flex'> {num} itens left</a></p>
         <div className='flex flex-row justify-between relative lg:left-[1em]'>
           <button  onClick={() => setSelect(0)}>All</button>

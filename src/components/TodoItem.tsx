@@ -14,7 +14,7 @@ import close from '../assets/icon-cross.svg'
 
 const TodoItem:FC<Todo> = ({id, completed, title, handlecompleted, removeItem, mode}) => {
 
-  const light = 'bg-Very-Light-Grayish-Blue flex justify-between px-3 py-4  shadow '
+  const light = 'bg-Very-Light-Gray flex justify-between px-3 py-4  shadow  '
   const dark = 'bg-Very-Dark-Desaturated-Blue flex justify-between px-3 py-4  shadow'
 
   const borderL = 'border-Dark-Grayish-Blue'

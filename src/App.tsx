@@ -1,7 +1,7 @@
 import TodoLayout from "./view/Layout/TodoLayout"
 
 function App() {
-  return <TodoLayout/>
+  return <TodoLayout/> 
 }
 
 export default App
