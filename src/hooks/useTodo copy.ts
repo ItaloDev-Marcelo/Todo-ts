@@ -4,7 +4,7 @@ import { type Todo } from "../types/todoFormate";
 export const UseTodo = () =>  {
         const [todo, setTodo] = useState<Todo[]>([]);
         const [task, setTask] = useState<string>('');
-        const [complatedTodos, setComplatedTodos] = useState<Todo[]>([]);
+        const [complatedArr, setcomplatedArr] = useState<Todo[]>([]);
         const [actives, setActives] = useState<Todo[]>([]);
         const [select, setSelect] = useState<number>(0);
 
@@ -13,11 +13,22 @@ export const UseTodo = () =>  {
            setTodo((prev) => [...prev, { id: Math.floor(Math.random() * 100) ,title: task , completed: false}] )
            setTask('')
         }
+        console.log(todo)
+      
       
         const handlecompleted = (id:number) => {
           setTodo((todos) => todos.map((todo) => 
            todo.id == id ? {...todo, completed: !todo.completed} : todo
           ))
+
+         
+          
+            // const result  = todo.find((item) => !item.completed)
+            // if(result) {
+            //    setcomplatedArr((item) => [...item, result])
+            // }
+
+
         }
       
       
@@ -25,19 +36,22 @@ export const UseTodo = () =>  {
            setTodo((todos) => 
             todos.filter((item) => item.id !== id ? item : null)
           )
+      
+         //   const removeArr = todo.find((item) => item.id === id)
+         //   if(removeArr) setRemovedArr((todos) => [...todos, removeArr])
         }
       
         useEffect(() => {
            const result =  todo.filter((item) => item.completed == false)
            const result2  = todo.filter((item) => item.completed)
            if(result) setActives(result);
-           if(result2.length > 0) setComplatedTodos(result2);
+           if(result2.length > 0) setcomplatedArr(result2);
         }, [todo])
       
       
         const clear = () => {
          setTodo(actives)
-         setComplatedTodos([])
+         setcomplatedArr([])
         }
 
 
@@ -46,7 +60,7 @@ export const UseTodo = () =>  {
             handlecompleted,
             removeItem,
             clear,
-            complatedTodos,
+            complatedArr,
             select,
             setSelect,
             actives,

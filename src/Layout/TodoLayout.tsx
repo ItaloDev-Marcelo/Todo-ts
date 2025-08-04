@@ -10,7 +10,7 @@ import { FormTheme, TodoControllTheme, TodoTextTheme, TodoWrapperTheme } from ".
 function TodoLayout() {
 
   const [darkMode, setDarkMode] = useState(false)
-  const {handleClick,handlecompleted,removeItem,clear,complatedArr,select,setSelect,actives,todo, task,setTask} = UseTodo()
+  const {addNewTodo ,handlecompleted,removeItem,clear,complatedTodos,select,setSelect,actives,todo, task,setTask} = UseTodo()
   const darkOrLight = () => setDarkMode(!darkMode)
   const {FormLight,FormDark} = FormTheme
   const {TodoWrapperLightTheme,TodoWrapperDarkTheme} = TodoWrapperTheme
@@ -27,7 +27,7 @@ function TodoLayout() {
 
      <Header mode={darkMode} darkOrLight={darkOrLight} />
 
-      <form onSubmit={handleClick} className={`flex flex-row w-[320px] md:w-[600px] h-[75px] xl:w-[660px] nt:w-[700px] mx-auto  relative top-[-7em] nt:top-[-8em]  px-2 rounded-[4px] transition ease-in-out ${darkMode ? FormDark : FormLight}`}>
+      <form onSubmit={addNewTodo} className={`flex flex-row w-[320px] md:w-[600px] h-[75px] xl:w-[660px] nt:w-[700px] mx-auto  relative top-[-7em] nt:top-[-8em]  px-2 rounded-[4px] transition ease-in-out ${darkMode ? FormDark : FormLight}`}>
          <button type='submit' className=" relative cursor-pointer"><span className="absolute top-6.5 left-2.5 w-[25px] h-[25px] rounded-[25px] outline-Light-Grayish-Blue outline-2 hover:outline-Light-Grayish-Blue-hover"></span></button>
          <input className="w-full relative left-12 " type='text' value={task} onChange={(e) => setTask(e.target.value)} placeholder="create a new todo..." /> 
       </form>
@@ -41,7 +41,7 @@ function TodoLayout() {
             handlecompleted={handlecompleted} 
             mode={darkMode}
             removeItem={removeItem} />
-        )) :  select === 1 ? complatedArr.length > 0 && complatedArr.map((item) => (
+        )) :  select === 1 ? complatedTodos.length > 0 && complatedTodos.map((item) => (
              <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />
         )) : actives.map((item) => (
              <TodoItem id={item.id} completed={item.completed} title={item.title} handlecompleted={handlecompleted} removeItem={removeItem}  mode={darkMode} />

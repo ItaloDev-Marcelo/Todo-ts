@@ -124,8 +124,8 @@ form {
 .custom-checkbox input:checked + .checkmark::after {
   content: '';
   position: absolute;
-  left: 9px;
-  top: 5px;
+  left: 11px;
+  top: 9px;
   width: 6px;
   height: 12px;
   border: solid white;
