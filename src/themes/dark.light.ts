@@ -39,7 +39,7 @@ export const TodoTextTheme = {
 };
 
 
-const Light = 'bg-Very-Light-Gray text-Very-Dark-Grayish-Blue';
+const Light = 'bg-white text-Very-Dark-Grayish-Blue';
 const Dark = 'bg-Very-Dark-Desaturated-Blue text-Light-Grayish-Blue';
 const BorderLight = 'border-Dark-Grayish-Blue  text-Very-Dark-Grayish-Blue ' ;
 const BorderDark = 'border-Light-Grayish-Blue text-Light-Grayish-Blue';

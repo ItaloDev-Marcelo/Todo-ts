@@ -1,5 +1,5 @@
-import { type DashboardTinyFormate } from "../../types/dashboardTinyFormate"
-import { DashboadTheme } from "../../themes/dark.light"
+import { type DashboardTinyFormate } from "../types/dashboardTinyFormate"
+import { DashboadTheme } from "../themes/dark.light"
 import type { FC } from "react";
 export const MobileDashboard:FC<DashboardTinyFormate> = ({num, clearComplated, darkMode}) => {
   const {dark, light} = DashboadTheme;

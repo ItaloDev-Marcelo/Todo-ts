@@ -15,11 +15,11 @@ const TodoItem:FC<TodoItemFormate> = ({id, completed, title, handlecompleted, re
           <input type='checkbox' className="hidden" checked={completed}  onChange={() => handlecompleted(id)} />
           <span className='checkmark'></span>
         </div>
-        <span className='ml-5 text-[1em] title '>{title}</span>
+        <span  className={completed ? 'ml-5 mt-1 text-[1em] text title font-black line' : 'ml-5 mt-1 text-[1em] title ' } >{title}</span>
         </label>
-        <button className='p-2' onClick={() => removeItem(id)}><img src={close} alt=''/></button>
+        <button className='p-2 md:hidden ' onClick={() => removeItem(id)}><img src={close} alt='' className=" w-[15px]" /></button>
     </div> 
-     <hr className={`opacity-50 border-1  ${mode ? BorderDark : BorderLight}`}/>
+     <hr className={`opacity-[.1] border-[.1px]  ${mode ? BorderDark : BorderLight}`}/>
     </>
   )
 }

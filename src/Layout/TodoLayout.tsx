@@ -1,10 +1,10 @@
 import {useEffect, useState}  from "react"
 import { UseTodo } from "../hooks/useTodo";
-import { MobileDashboard } from "../ui/components/ControllComponent";
+import { MobileDashboard } from "../components/ControllComponent";
 import TodoItem from '../components/TodoItem'
-import Dashboard from "../ui/components/Dashboard";
-import MainWrapper from "../ui/MainWrapper";
-import Header from "../ui/header";
+import Dashboard from "../components/Dashboard";
+import MainWrapper from "../components/MainWrapper";
+import Header from "../components/header";
 import { FormTheme, TodoControllTheme, TodoTextTheme, TodoWrapperTheme } from "../themes/dark.light";
 
 function TodoLayout() {
@@ -27,12 +27,13 @@ function TodoLayout() {
 
      <Header mode={darkMode} darkOrLight={darkOrLight} />
 
-      <form onSubmit={addNewTodo} className={`flex flex-row w-[320px] md:w-[600px] h-[75px] xl:w-[660px] nt:w-[700px] mx-auto  relative top-[-7em] nt:top-[-8em]  px-2 rounded-[4px] transition ease-in-out ${darkMode ? FormDark : FormLight}`}>
-         <button type='submit' className=" relative cursor-pointer"><span className="absolute top-6.5 left-2.5 w-[25px] h-[25px] rounded-[25px] outline-Light-Grayish-Blue outline-2 hover:outline-Light-Grayish-Blue-hover"></span></button>
+      <form onSubmit={addNewTodo} className={`flex flex-row w-[320px] 
+          md:w-[600px] tb:w-[500px] h-[75px] lg:w-[570px] xl:w-[660px] nt:w-[600px] mx-auto relative tb:top-[-5em] top-[-7em] nt:top-[-7em]  px-2 rounded-[4px] transition ease-in-out ${darkMode ? FormDark : FormLight}`}>
+         <button type={task.length > 0 ? 'submit' : "button"} className=" relative cursor-pointer"><span className="absolute top-6.5 left-2.5 w-[25px] h-[25px] rounded-[25px] outline-Light-Grayish-Blue outline-2 hover:outline-Light-Grayish-Blue-hover"></span></button>
          <input className="w-full relative left-12 " type='text' value={task} onChange={(e) => setTask(e.target.value)} placeholder="create a new todo..." /> 
       </form>
 
-      <div className={`relative top-[-5em] nt:top-[-6em] mx-auto  w-[320px] md:w-[600px]  xl:w-[660px] nt:w-[700px]  transition ease-in-out rounded-[3px] px-[.1em] ${darkMode ?TodoWrapperDarkTheme : TodoWrapperLightTheme}`}>
+      <div className={`relative top-[-5em] tb:top-[-3em] lg:w-[570px]  nt:top-[-6em] mx-auto  w-[320px] md:w-[600px] tb:w-[500px]  xl:w-[660px] nt:w-[600px]   transition ease-in-out rounded-[3px] px-[.1em] ${darkMode ?TodoWrapperDarkTheme : TodoWrapperLightTheme}`}>
       <div className='tiny '>
         {
         select === 0 ? todo.map((item) => (
@@ -50,15 +51,15 @@ function TodoLayout() {
       </div>
       {todo.length > 0 && <div className="md:hidden"> <MobileDashboard num={actives.length} clearComplated={clear} darkMode={darkMode} /></div> }
       {todo.length > 0 && <div>
-         <Dashboard num={actives.length} setSelect={setSelect}  clearComplated={clear} darkMode={darkMode} />
+         <Dashboard num={actives.length} setSelect={setSelect} select={select}  clearComplated={clear} darkMode={darkMode} />
       </div>}
       </div>
 
       {todo.length > 0  && <div>
-         <div className={`relative nt:hidden top-[-2em] w-[320px] md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] flex flex-row justify-between items-center ${darkMode ?ControllDark : ControllLight} `}>
-          <button onClick={() => setSelect(0)}>All</button>
-          <button className="mx-5 items-center" onClick={() => setSelect(2)}>Active</button>
-          <button onClick={() => setSelect(1)}>Completed</button>
+         <div className={`relative lg:hidden top-[-2em] tb:top-[-3em] w-[320px] tb:w-[500px] md:w-[600px] px-20 mx-auto  xl:w-[660px] h-[60px] rounded-[3px] flex flex-row justify-between items-center ${darkMode ?ControllDark : ControllLight} `}>
+          <button onClick={() => setSelect(0)} className={select === 0 ? 'font-black text-blue-500 cursor-pointer' : 'font-black text-Light-Grayish-Blue cursor-pointer' } >All</button>
+          <button onClick={() => setSelect(2)} className={select === 2 ? 'font-black mx-5 items-center text-blue-500 cursor-pointer' : 'font-black mx-5 items-center cursor-pointer text-Light-Grayish-Blue' }>Active</button>
+          <button onClick={() => setSelect(1)} className={select === 1 ? 'font-black text-blue-500 cursor-pointer' : 'font-black text-Light-Grayish-Blue cursor-pointer' }>Completed</button>
         </div>
       </div>}
         
