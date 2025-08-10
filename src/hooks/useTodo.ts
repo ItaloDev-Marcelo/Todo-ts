@@ -10,7 +10,7 @@ export const UseTodo = () =>  {
 
         const addNewTodo = (e: React.FormEvent<HTMLFormElement>) => {
          e.preventDefault()
-           setTodo((prev) => [...prev, { id: Math.floor(Math.random() * 100) ,title: task , completed: false}] )
+           setTodo((prev) =>  [...prev, { id: Math.floor(Math.random() * 100) ,title: task , completed: false}] )
            setTask('')
         }
       
